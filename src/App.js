@@ -1,24 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
+//import TourCard from '../src/Components/TourCard'
+// import Container from '@mui/material/Container';
+import SearchAppBar from './Components/Appbar';
+import Home from './pages/Home';
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import Tour from './pages/Tour';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <SearchAppBar/>
+    <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/:id" element={<Tour/>}></Route>
+
+    </Routes>
+    </BrowserRouter>
+    // <div className="App">
+    //   <SearchAppBar/>
+    //   <Container sx={{marginY:5}}>
+
+    //     {cities.map((city)=>{
+    //       return <>
+    //       <Typography
+    //       variant="h4"
+    //       component="h2"
+    //       marginTop={5}
+    //       marginBottom={3}>
+    //         Top {city.name} Tours
+    //       </Typography>
+    //       <Grid container spacing={5}>
+    //         {city.tours.map((tour,index)=>{
+    //           return <TourCard tour={tour} key={index}/>
+    //         })}
+    //       </Grid>
+    //       </>
+    //     })}
+    //     {/* <Grid container spacing={5}>
+    //     <TourCard/>
+    //     <TourCard/>
+    //     <TourCard/>
+        
+    //     <TourCard/>
+    //     </Grid> */}
+    //     </Container>
+    
+    // </div>
   );
 }
 
